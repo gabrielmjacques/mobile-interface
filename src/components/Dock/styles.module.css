@@ -1,0 +1,9 @@
+.dock {
+    background-color: #00000029;
+    display: flex;
+    justify-content: center;
+
+    gap: 8px;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
