@@ -5,3 +5,10 @@
   padding: 0;
   transition-duration: .3s;
 }
+
+button {
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  outline: none;
+}

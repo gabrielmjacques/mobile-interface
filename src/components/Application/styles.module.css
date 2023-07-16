@@ -8,6 +8,10 @@
     gap: 4px;
 }
 
+.application {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .application:hover {
     scale: 1.05;
 }

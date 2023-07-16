@@ -6,10 +6,11 @@ import styles from './styles.module.css';
 type props = {
     type?: 'dock' | 'workspace',
     appName?: string,
-    appIcon?: string
+    appIcon?: string,
+    handleContextMenu: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
-export default function Application({ type = 'workspace', appName = 'Application', appIcon = 'https://placehold.co/100' }: props) {
+export default function Application({ type = 'workspace', appName = 'Application', appIcon = 'https://placehold.co/100', handleContextMenu }: props) {
     const [name, setName] = useState(appName);
 
     useEffect(() => {
@@ -20,8 +21,14 @@ export default function Application({ type = 'workspace', appName = 'Application
 
     }, [])
 
+    function handleMenu(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+        sessionStorage.setItem('app_name', appName)
+
+        handleContextMenu(e)
+    }
+
     return (
-        <div className={ styles.application } title={ appName }>
+        <div className={ styles.application } title={ appName } onContextMenu={ handleMenu }>
             <img src={ appIcon } alt="" style={ { width: type == 'workspace' ? '50px' : '45px' } } />
 
             <p>{ name }</p>
